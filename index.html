@@ -1,9 +1,865 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My GitHub Website</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dr. Abhik Jana | Assistant Professor, SECS, IIT Bhubaneswar</title>
+<meta name="description" content="Academic homepage of Dr. Abhik Jana, Assistant Professor at the School of Electrical and Computer Sciences, IIT Bhubaneswar. Natural Language Processing research, projects, publications, teaching and student mentoring.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+
+<!--
+  ============================================================
+  HOW TO EDIT THIS SITE
+  ------------------------------------------------------------
+  Photo     : save your photo as photo.jpg next to this file.
+  CV        : save your resume as cv.pdf next to this file.
+  Gallery   : put images in a folder called gallery/ and add a
+              line to the GALLERY list in the script at the bottom.
+  Publications and mentoring tables:
+              all live in the script at the bottom of this file.
+              Add a line, save, push to GitHub. That is all.
+  Other text (About, Research areas, Teaching, Awards, Service)
+              is plain HTML below. Edit it directly.
+  ============================================================
+-->
+
+<style>
+  :root {
+    --bg: #f6f7f9;
+    --panel: #ffffff;
+    --ink: #16202f;
+    --muted: #586478;
+    --line: #d9dee6;
+    --accent: #27408b;
+    --accent-soft: #e6ebf8;
+    --saffron: #d98e04;
+    --serif: "Newsreader", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1520; --panel: #161e2c; --ink: #e6eaf2; --muted: #9aa6ba;
+      --line: #27324a; --accent: #9bb2ff; --accent-soft: #1d2842; --saffron: #f0a82a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f1520; --panel: #161e2c; --ink: #e6eaf2; --muted: #9aa6ba;
+    --line: #27324a; --accent: #9bb2ff; --accent-soft: #1d2842; --saffron: #f0a82a;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--serif); font-size: 1.125rem; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:hover { text-decoration-color: var(--saffron); text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; border-radius: 2px; }
+  .skip { position: absolute; left: -999px; top: 0; background: var(--ink); color: var(--bg); padding: .5rem 1rem; z-index: 10; }
+  .skip:focus { left: 0; }
+
+  /* ---------- layout ---------- */
+  .shell { max-width: 74rem; margin: 0 auto; display: grid; grid-template-columns: 16.5rem minmax(0, 1fr); gap: 3.5rem; padding: 2.5rem 1.5rem 3rem; }
+
+  /* ---------- sidebar ---------- */
+  aside { position: sticky; top: 1.5rem; align-self: start; max-height: calc(100vh - 3rem); overflow-y: auto; font-family: var(--sans); font-size: .93rem; padding-right: .4rem; scrollbar-width: thin; }
+  .portrait { position: relative; width: 100%; max-width: 12rem; aspect-ratio: 1; border-radius: 4px; overflow: hidden; background: var(--accent); display: grid; place-items: center; border-bottom: 5px solid var(--saffron); }
+  .portrait span { font-family: var(--serif); font-size: 3.6rem; color: #fff; letter-spacing: .02em; }
+  .portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  aside h1 { font-family: var(--serif); font-weight: 600; font-size: 1.6rem; line-height: 1.2; margin: 1rem 0 .3rem; }
+  .role { margin: 0; color: var(--muted); line-height: 1.5; }
+  .role strong { color: var(--ink); font-weight: 500; }
+
+  .links { list-style: none; padding: 0; margin: 1rem 0; display: grid; gap: .25rem; }
+  .links a { text-decoration: none; }
+  .links a:hover { text-decoration: underline; }
+
+  nav { border-top: 1px solid var(--line); padding-top: .8rem; margin-top: .8rem; }
+  nav ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; }
+  nav a { display: block; padding: .22rem .7rem; margin-left: -.7rem; text-decoration: none; color: var(--muted); border-left: 3px solid transparent; }
+  nav a:hover { color: var(--ink); }
+  nav a.active { color: var(--ink); font-weight: 500; border-left-color: var(--saffron); }
+
+  .theme-btn { margin-top: 1rem; font: inherit; font-size: .83rem; color: var(--muted); background: none; border: 1px solid var(--line); border-radius: 4px; padding: .3rem .7rem; cursor: pointer; }
+  .theme-btn:hover { color: var(--ink); border-color: var(--muted); }
+
+  /* ---------- main ---------- */
+  main { min-width: 0; }
+  section { padding-bottom: 2.75rem; }
+  section + section { padding-top: 2.75rem; border-top: 1px solid var(--line); }
+  h2 { font-weight: 600; font-size: 1.75rem; line-height: 1.25; margin: 0 0 1rem; }
+  h3 { font-weight: 600; font-size: 1.15rem; margin: 0 0 .25rem; }
+  h3.sub { margin: 2rem 0 .6rem; }
+  p { margin: 0 0 1rem; max-width: 40rem; }
+  ul.plain { margin: 0 0 1rem; padding-left: 1.2rem; max-width: 42rem; }
+  ul.plain li { margin-bottom: .35rem; }
+  .muted { color: var(--muted); }
+  .note { font-family: var(--sans); font-size: .93rem; color: var(--muted); max-width: 42rem; }
+  .intro { font-size: 1.3rem; line-height: 1.55; max-width: 38rem; }
+
+
+  /* research */
+  .areas { display: grid; gap: 1.25rem; max-width: 42rem; }
+  .area { border-left: 4px solid var(--accent); padding: .1rem 0 .1rem 1.1rem; }
+  .area p { margin: 0; color: var(--muted); }
+
+  /* projects */
+  .proj { padding: .7rem 0 .7rem 1rem; border-left: 3px solid var(--line); margin-bottom: .7rem; max-width: 44rem; }
+  .proj.ongoing { border-left-color: var(--saffron); }
+  .proj .title { font-weight: 600; display: block; }
+  .proj .meta { display: block; font-family: var(--sans); font-size: .88rem; color: var(--muted); margin-top: .15rem; }
+
+  /* publications */
+  .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 1.5rem; font-family: var(--sans); }
+  .filters button { font: inherit; font-size: .88rem; padding: .35rem .9rem; border-radius: 999px; cursor: pointer; border: 1px solid var(--line); background: var(--panel); color: var(--ink); }
+  .filters button:hover { border-color: var(--accent); }
+  .filters button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--panel); }
+  .year { font-family: var(--sans); font-weight: 600; font-size: 1rem; color: var(--muted); margin: 1.75rem 0 .5rem; }
+  .pub { padding: .6rem 0 .6rem 1rem; border-left: 3px solid var(--line); margin-bottom: .5rem; max-width: 48rem; }
+  .pub:hover { border-left-color: var(--saffron); }
+  .pub .title { font-weight: 600; display: block; }
+  .pub .authors, .pub .venue { display: block; font-size: 1rem; color: var(--muted); }
+  .pub .authors b { color: var(--ink); font-weight: 600; }
+  .pub .venue { font-style: italic; }
+  .pub .tag { font-family: var(--sans); font-size: .73rem; background: var(--accent-soft); color: var(--accent); border-radius: 3px; padding: .05rem .45rem; margin-right: .4rem; font-style: normal; }
+  .pub .tag.soon { background: transparent; border: 1px solid var(--saffron); color: var(--ink); }
+  .empty { color: var(--muted); font-family: var(--sans); }
+
+  /* tables */
+  .tablewrap { overflow-x: auto; max-width: 100%; margin-bottom: .5rem; }
+  table { width: 100%; max-width: 56rem; border-collapse: collapse; font-family: var(--sans); font-size: .92rem; }
+  th, td { text-align: left; padding: .55rem .8rem .55rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-weight: 600; color: var(--muted); font-size: .82rem; white-space: nowrap; }
+  td.nw { white-space: nowrap; }
+  td.name { font-weight: 500; }
+  .stats { font-family: var(--sans); display: flex; flex-wrap: wrap; gap: .6rem 2rem; margin: 0 0 1.5rem; }
+  .stats div { font-size: .93rem; color: var(--muted); }
+  .stats b { color: var(--ink); font-weight: 600; font-size: 1.15rem; margin-right: .3rem; }
+
+  .people { list-style: none; padding: 0; margin: 0 0 1rem; display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem 2rem; max-width: 48rem; font-family: var(--sans); font-size: .95rem; line-height: 1.45; }
+  .people b { display: block; font-weight: 500; }
+  .people span { color: var(--muted); }
+
+  .callout { background: var(--panel); border: 1px solid var(--line); border-left: 5px solid var(--saffron); border-radius: 4px; padding: 1rem 1.25rem; max-width: 42rem; }
+  .callout p { margin: 0 0 .6rem; }
+  .callout p:last-child { margin: 0; }
+
+  /* gallery */
+  .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: .8rem; margin-top: 1rem; }
+  .gallery button { padding: 0; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); cursor: pointer; overflow: hidden; text-align: left; font: inherit; }
+  .gallery img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .gallery .cap { display: block; font-family: var(--sans); font-size: .83rem; color: var(--muted); padding: .4rem .6rem; }
+  dialog { border: 0; padding: 0; background: var(--panel); color: var(--ink); max-width: min(92vw, 60rem); border-radius: 6px; }
+  dialog::backdrop { background: rgba(8, 12, 20, .8); }
+  dialog img { display: block; max-width: 100%; max-height: 78vh; margin: 0 auto; }
+  dialog .bar { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: .7rem 1rem; font-family: var(--sans); font-size: .9rem; }
+  dialog button { font: inherit; font-size: .85rem; border: 1px solid var(--line); background: none; color: var(--ink); border-radius: 4px; padding: .3rem .8rem; cursor: pointer; }
+
+  address { font-style: normal; font-family: var(--sans); font-size: 1rem; line-height: 1.7; max-width: 42rem; }
+  address dl { display: grid; grid-template-columns: 6.5rem 1fr; gap: .4rem 1rem; margin: 0; }
+  address dt { color: var(--muted); }
+  address dd { margin: 0; }
+
+  footer { grid-column: 1 / -1; border-top: 1px solid var(--line); padding-top: 1.25rem; font-family: var(--sans); font-size: .85rem; color: var(--muted); }
+
+  /* ---------- small screens ---------- */
+  @media (max-width: 54rem) {
+    .shell { grid-template-columns: 1fr; gap: 2rem; padding-top: 1.5rem; }
+    aside { position: static; max-height: none; overflow: visible; display: grid; grid-template-columns: 7rem 1fr; column-gap: 1.25rem; align-items: start; padding-right: 0; }
+    .portrait { grid-row: 1 / 3; max-width: none; }
+    .portrait span { font-size: 2.4rem; }
+    aside h1 { margin-top: 0; font-size: 1.4rem; }
+    .links, nav, .theme-btn { grid-column: 1 / -1; }
+    .links { grid-auto-flow: row; }
+    nav ul { display: flex; flex-wrap: wrap; gap: .1rem 1rem; }
+    nav a { margin-left: 0; padding: .2rem 0; border-left: 0; border-bottom: 3px solid transparent; }
+    nav a.active { border-bottom-color: var(--saffron); }
+    address dl { grid-template-columns: 1fr; gap: 0; }
+    address dt { margin-top: .6rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  @media print {
+    aside nav, .theme-btn, .filters, .skip { display: none; }
+    .shell { display: block; } aside { position: static; max-height: none; }
+    body { background: #fff; color: #000; }
+  }
+</style>
 </head>
+
 <body>
-    <h1>Hello, World! Welcome to my website.</h1>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="shell">
+
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside>
+    <div class="portrait">
+      <span aria-hidden="true">AJ</span>
+      <!-- Save your photo as photo.jpg next to this file. Until then the institute photo is tried, then initials. -->
+      <img src="photo.jpg" alt="Portrait of Dr. Abhik Jana"
+           onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://secs.iitbbs.ac.in/wp-content/uploads/2024/06/Dr.-Abhik-Jana.png'}else{this.remove()}">
+    </div>
+
+    <h1>Dr. Abhik Jana</h1>
+    <p class="role">
+      <strong>Assistant Professor</strong><br>
+      School of Electrical and Computer Sciences<br>
+      Indian Institute of Technology Bhubaneswar
+    </p>
+
+    <ul class="links">
+      <li><a href="mailto:abhikjana@iitbbs.ac.in">abhikjana@iitbbs.ac.in</a></li>
+      <li><a href="https://scholar.google.co.in/citations?user=D0DaFlEAAAAJ&hl=en" rel="noopener">Google Scholar</a></li>
+      <li><a href="https://www.linkedin.com/in/abhik-jana-27599020/" rel="noopener">LinkedIn</a></li>
+      <li><a href="cv.pdf">Brief resume (PDF)</a></li>
+      <li><a href="https://secs.iitbbs.ac.in/index.php/abhik/" rel="noopener">Institute profile</a></li>
+    </ul>
+
+    <nav aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+        <li><a href="#mentoring">Student mentoring</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#service">Professional activities</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch between light and dark theme">Switch theme</button>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main id="main">
+
+    <!-- ---------- About ---------- -->
+    <section id="about">
+      <h2>About</h2>
+      <p class="intro">
+        I am an Assistant Professor at the School of Electrical and Computer Sciences, IIT Bhubaneswar.
+        My research is in Natural Language Processing.
+      </p>
+      <p>
+        I joined IIT Bhubaneswar in January 2023. Before that I was a research associate at Universität Hamburg, Germany
+        (November 2019 to December 2022), working with Prof. Dr. Chris Biemann.
+      </p>
+      <p>
+        I completed my Ph.D. at the Department of Computer Science and Engineering, IIT Kharagpur, under
+        Prof. Dr. Pawan Goyal. My M.Tech at IIT Kharagpur was under Prof. Dr. Anupam Basu. My B.Tech in
+        Computer Science and Engineering is from the Institute of Engineering and Management, Kolkata.
+      </p>
+
+      <h3 class="sub">Education</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th scope="col">Degree</th><th scope="col">Discipline</th><th scope="col">Year</th><th scope="col">Institute</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Ph.D.</td><td>Computer Science and Engineering</td><td>2019</td><td>IIT Kharagpur</td></tr>
+            <tr><td class="name">M.Tech</td><td>Computer Science and Engineering</td><td>2013</td><td>IIT Kharagpur</td></tr>
+            <tr><td class="name">B.Tech</td><td>Computer Science and Engineering</td><td>2011</td><td>IEM, Kolkata (WBUT)</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Experience</h3>
+      <ul class="plain">
+        <li><b>Assistant Professor</b>, School of Electrical and Computer Sciences, IIT Bhubaneswar, India. January 2023 to present.</li>
+        <li><b>Research Associate</b>, Language Technology Group, University of Hamburg, Germany. November 2019 to December 2022.</li>
+        <li><b>Member of Technical Staff II (Research)</b>, Advanced Technology Group, NetApp India Private Limited. July 2013 to July 2014.</li>
+      </ul>
+    </section>
+
+    <!-- ---------- Research ---------- -->
+    <section id="research">
+      <h2>Research</h2>
+      <p>
+        My group works on Natural Language Processing, with a focus on Indian and other low-resource languages
+        and on how large language models reason and plan.
+      </p>
+      <div class="areas">
+        <div class="area">
+          <h3>NLP for Indian and low-resource languages</h3>
+          <p>Resources and models for Hindi, Bengali, Telugu and other Indian languages: WordNet enrichment, hypernymy detection, summarization, sentiment analysis, speech recognition and speech-to-speech translation.</p>
+        </div>
+        <div class="area">
+          <h3>Lexical semantics</h3>
+          <p>Word senses, compositionality, co-hyponymy and lexical semantic change, using network and embedding methods.</p>
+        </div>
+        <div class="area">
+          <h3>Reasoning and planning with large language models</h3>
+          <p>Benchmarks and methods for negation reasoning, common-sense reasoning, semantic role labelling and travel planning under constraints and disruptions.</p>
+        </div>
+        <div class="area">
+          <h3>Language technology for society</h3>
+          <p>Legal language understanding, counterspeech generation, fake news detection, user engagement in news media, and privacy-preserving federated learning for sequence labelling.</p>
+        </div>
+      </div>
+      <p class="note" style="margin-top:1.25rem">
+        Prospective Ph.D. and MS (Research) applicants: see the school's
+        <a href="https://secs.iitbbs.ac.in/index.php/broad-research-areas-ph-d-and-ms-r-admission/" rel="noopener">broad research areas and admission page</a>.
+      </p>
+    </section>
+
+    <!-- ---------- Projects ---------- -->
+    <section id="projects">
+      <h2>Projects</h2>
+      <h3>Ongoing</h3>
+      <div style="margin-top:.6rem">
+        <div class="proj ongoing">
+          <span class="title">Human-in-the-Loop Federated Learning Framework for Sequence Labelling Task Targeted to Low-Resource Indian Languages</span>
+          <span class="meta">Sponsored by IIT Bhubaneswar, 2024 to 2026</span>
+        </div>
+        <div class="proj ongoing">
+          <span class="title">Optimization of Algorithms for Voice Analysis System for Defence Applications</span>
+          <span class="meta">Sponsored by DRDO, 2024 to 2027</span>
+        </div>
+      </div>
+      <h3 class="sub">Completed</h3>
+      <div>
+        <div class="proj">
+          <span class="title">Interactive story/poetry writing and scene generation using Augmented Reality</span>
+          <span class="meta">Sponsored by VARCOE, 2023 to 2026</span>
+        </div>
+        <div class="proj">
+          <span class="title">Geospatial Knowledge Inference using LLMs for Enhanced Travel Decision-Making</span>
+          <span class="meta">Sponsored by Microsoft, 2024 to 2025</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- Publications ---------- -->
+    <section id="publications">
+      <h2>Publications</h2>
+      <p class="note">
+        The most complete and current list is on
+        <a href="https://scholar.google.co.in/citations?user=D0DaFlEAAAAJ&hl=en" rel="noopener">Google Scholar</a>.
+        Venues marked "To appear" are accepted but not yet published.
+      </p>
+      <div class="filters" id="filters" role="group" aria-label="Filter publications by type"></div>
+      <div id="pubList" aria-live="polite"></div>
+    </section>
+
+    <!-- ---------- Teaching ---------- -->
+    <section id="teaching">
+      <h2>Teaching</h2>
+      <h3>Department of CSE, IIT Bhubaneswar</h3>
+      <div class="tablewrap" style="margin-top:.6rem">
+        <table>
+          <thead><tr><th scope="col">Code</th><th scope="col">Course</th><th scope="col">Offered</th></tr></thead>
+          <tbody>
+            <tr><td class="nw name">CS6P009</td><td>Advanced Machine Learning Lab</td><td>Spring 2025, 2026</td></tr>
+            <tr><td class="nw name">CS6L027</td><td>Natural Language Processing</td><td>Spring 2024, 2025, 2026</td></tr>
+            <tr><td class="nw name">CS2L004</td><td>Data Structures</td><td>Autumn 2023, 2024, 2025, 2026</td></tr>
+            <tr><td class="nw name">CS2P002</td><td>Data Structure Laboratory</td><td>Autumn 2023, 2024, 2025, 2026</td></tr>
+            <tr><td class="nw name">CS1L001</td><td>Introduction to Programming and Data Structures</td><td>Autumn 2023</td></tr>
+            <tr><td class="nw name">CS1P001</td><td>Introduction to Programming and Data Structure Laboratory</td><td>Spring 2023</td></tr>
+            <tr><td class="nw name">CS2L002</td><td>Design and Analysis of Algorithms</td><td>Spring 2023</td></tr>
+            <tr><td class="nw name">CS2P001</td><td>Design and Analysis of Algorithms Laboratory</td><td>Spring 2023</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="sub">Department of Informatics, University of Hamburg, Germany</h3>
+      <div class="tablewrap" style="margin-top:.6rem">
+        <table>
+          <thead><tr><th scope="col">Course</th><th scope="col">Offered</th></tr></thead>
+          <tbody>
+            <tr><td class="name">Statistical Methods for Language Technology</td><td>Spring 2022</td></tr>
+            <tr><td class="name">NLP and the Web</td><td>Autumn 2020, Autumn 2021</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ---------- Student mentoring ---------- -->
+    <section id="mentoring">
+      <h2>Student mentoring</h2>
+
+      <div class="stats">
+        <div><b>4</b>MS/Ph.D. ongoing</div>
+        <div><b>9</b>Master's theses completed, 3 ongoing</div>
+        <div><b>15</b>Bachelor's theses completed, 5 ongoing</div>
+      </div>
+
+      <h3>MS and Ph.D. supervision (ongoing)</h3>
+      <ul class="people" style="margin-top:.6rem">
+        <li><b>Ritwik Raghav</b><span>Ph.D. scholar, since Autumn 2023</span></li>
+        <li><b>Manmohan Mahapatra</b><span>MS scholar, since Spring 2024</span></li>
+        <li><b>Avik Sarkar</b><span>Ph.D. scholar, since Autumn 2025</span></li>
+        <li><b>Anirban Betal</b><span>MS scholar, since Autumn 2025</span></li>
+      </ul>
+
+      <h3 class="sub">Master's thesis supervision (completed)</h3>
+      <div class="tablewrap" id="mtechTable"></div>
+
+      <h3 class="sub">Bachelor's thesis supervision (completed)</h3>
+      <div class="tablewrap" id="btechTable"></div>
+    </section>
+
+    <!-- ---------- Awards ---------- -->
+    <section id="awards">
+      <h2>Awards and grants</h2>
+      <ul class="plain">
+        <li>Microsoft Academic Partnership Grant (MAPG), 2024.</li>
+        <li>Selected for the Heidelberg Laureate Forum, 2020-21.</li>
+        <li>Microsoft Research India Student Travel Grant for ACL 2019.</li>
+        <li>ACM SIGAPP Student Travel Grant for ACM SAC 2019.</li>
+        <li>CoDS-COMAD 2019 Student Travel Grant.</li>
+        <li>ACM India-IARCS Student Travel Grant for COLING 2018.</li>
+        <li>Microsoft Research India Student Travel Grant for COLING 2018.</li>
+        <li>Flipkart India Travel Grant for NAACL 2018.</li>
+        <li>SIGIR Student Travel Grant for JCDL 2017.</li>
+        <li>CTO Innovation Award FY14, NetApp India Private Limited, 2014.</li>
+        <li>TCS Best Student Project Award for B.Tech thesis, 2011.</li>
+      </ul>
+    </section>
+
+    <!-- ---------- Professional activities ---------- -->
+    <section id="service">
+      <h2>Professional activities</h2>
+
+      <h3>Reviewing and chairing</h3>
+      <ul class="plain" style="margin-top:.5rem">
+        <li><b>Area Chair</b> for ACL 2026 and EMNLP 2026.</li>
+        <li><b>Reviewer</b> for ACL 2019 to 2025, EMNLP 2020 to 2025, CoNLL 2019 to 2023, NAACL 2019 to 2024, LREC 2020 to 2026, COLING 2020 to 2024 and AAAI 2025.</li>
+        <li><b>Program Committee member</b>, First Workshop on Generative AI and Computational Journalism (JEN-AI 2026).</li>
+        <li><b>Co-organizer</b> of TextGraphs 2020, 2021 and 2022.</li>
+      </ul>
+
+      <h3 class="sub">Organizing</h3>
+      <ul class="plain" style="margin-top:.5rem">
+        <li><b>Faculty Coordinator</b>, Faculty Development Programme on Recent Trends and Applications in Artificial Intelligence, IIT Bhubaneswar, 25 February to 1 March 2025.</li>
+        <li><b>Track Chair</b> (Data Science and AI) and <b>session chair</b>, 3rd International Conference on Microwave, Optical and Communication Engineering (ICMOCE-2025), 23 to 25 May 2025.</li>
+        <li><b>Liaison Officer</b>, G20 event 2023, Bhubaneswar.</li>
+        <li>Earlier: student volunteer at ACL 2019 (Florence), ICNDE 2018 (IIT Kharagpur), the Workshop on Complex and Social Networks 2017 and the short-term school on Machine Learning and Complex Networks 2015; instructor for the programming session of the 2018 workshop on Machine Learning for Cyber Physical Systems, IIT Kharagpur.</li>
+      </ul>
+
+      <h3 class="sub">Invited talks</h3>
+      <ul class="plain" style="margin-top:.5rem">
+        <li>SPARC-sponsored workshop, <em>Frontiers of AI, Cloud, and Quantum Computing for Next-Generation Healthcare and Societal Applications</em>, January 2026.</li>
+        <li>IMA Silver Jubilee Workshop, <em>Mathematical Aspects of AI and Computing</em>, IMA Bhubaneswar, December 2024.</li>
+        <li>Workshop on <em>Applied Cyber Security for Airport Authority of India</em>, January 2024.</li>
+      </ul>
+    </section>
+
+    <!-- ---------- Gallery ---------- -->
+    <section id="gallery">
+      <h2>Gallery</h2>
+      <p>
+        Conferences, workshops, group moments and a few outdoor trips. Outside work I enjoy cricket, football,
+        lawn tennis, badminton, table tennis, travelling, trekking, hiking and river rafting.
+      </p>
+      <p class="note">
+        More photos in the <a href="https://photos.app.goo.gl/Sx3icRru4KNo68dj6" rel="noopener">full online album</a>.
+      </p>
+      <div class="gallery" id="galleryGrid"></div>
+    </section>
+
+    <!-- ---------- Contact ---------- -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <address>
+        <dl>
+          <dt>Email</dt><dd><a href="mailto:abhikjana@iitbbs.ac.in">abhikjana@iitbbs.ac.in</a></dd>
+          <dt>Office</dt><dd>Room B 204, School of Electrical and Computer Sciences,<br>Indian Institute of Technology Bhubaneswar, Odisha</dd>
+          <dt>Phone</dt><dd>0674-7135742 (office)</dd>
+        </dl>
+      </address>
+    </section>
+
+  </main>
+
+  <footer>
+    Last updated <span id="updated"></span>.
+    This is a personal academic page; the official profile is on the
+    <a href="https://secs.iitbbs.ac.in/index.php/abhik/" rel="noopener">SECS, IIT Bhubaneswar website</a>.
+  </footer>
+</div>
+
+<dialog id="lightbox" aria-label="Photo viewer">
+  <img id="lbImg" alt="">
+  <div class="bar"><span id="lbCap"></span><button type="button" id="lbClose">Close</button></div>
+</dialog>
+
+<script>
+/* =========================================================
+   EDIT YOUR CONTENT HERE
+   ========================================================= */
+
+const MY_NAME = "Abhik Jana";   // shown in bold in author lists
+
+// ---------- PUBLICATIONS ----------
+// type: "Journal" | "Conference" | "Workshop" | "Preprint"
+// soon: true for "to appear". link is optional.
+const PUBS = [
+  // ----- 2026 -----
+  { y: 2026, type: "Workshop", soon: true,
+    title: "The Energy-Accuracy Frontier: Benchmarking SNNs on Low-Resource Indian Linguistic Tasks",
+    authors: "Priyam Saha, Debiprasanna Sahoo, Abhik Jana",
+    venue: "WiNLP 2026, co-located with EMNLP 2026, Budapest, Hungary" },
+  { y: 2026, type: "Conference", soon: true,
+    title: "TRIPPULSE: Multi-Agent Travel Planning with Review-Grounded Reasoning",
+    authors: "Priyanshu Karmakar, Borru Vijay Sai, Shubhojit Mallick, Abhik Jana, Shreya Ghosh, Manish Gupta",
+    venue: "EMNLP 2026 (Findings), Budapest, Hungary" },
+  { y: 2026, type: "Conference", soon: true,
+    title: "UTP-Bench: Uncertainty-aware Travel Planning Benchmark",
+    authors: "Etcharla Revanth Rao, Priyanshu Karmakar, Shubhojit Mallick, Manish Gupta, Shreya Ghosh, Abhik Jana",
+    venue: "EMNLP 2026 (Findings), Budapest, Hungary" },
+  { y: 2026, type: "Conference", soon: true,
+    title: "Does Label-Aware Speech Representation Help? An Investigation for Indian Spoken Language Identification",
+    authors: "Manmohan Mahapatra, Abhik Jana",
+    venue: "TENCON 2026, Bali, Indonesia" },
+  { y: 2026, type: "Conference", soon: true,
+    title: "Federated Named Entity Recognition for Indic Languages",
+    authors: "Rhythm Patel, Abhik Jana",
+    venue: "TENCON 2026, Bali, Indonesia" },
+  { y: 2026, type: "Workshop",
+    title: "IndiAnn: A Web-based Annotation Platform for Indic Languages",
+    authors: "Bandaru Lavadeep, Ritwik Raghav, Abhik Jana",
+    venue: "LAW 2026, co-located with ACL 2026, San Diego, USA",
+    link: "https://aclanthology.org/2026.law-main.10/" },
+  { y: 2026, type: "Workshop",
+    title: "Cascaded Modular or End-to-End? An Investigation on Speech-to-Speech Translation Task for Dravidian Languages",
+    authors: "Nali Bhavana, Abhik Jana",
+    venue: "DravidianLangTech 2026, co-located with ACL 2026, San Diego, USA",
+    link: "https://aclanthology.org/2026.dravidianlangtech-1.3/" },
+  { y: 2026, type: "Conference",
+    title: "TripTide: A Benchmark for Adaptive Travel Planning under Disruptions",
+    authors: "Priyanshu Karmakar, Soumyabrata Chaudhuri, Shubhojit Mallick, Manish Gupta, Abhik Jana, Shreya Ghosh",
+    venue: "ACL 2026 (Findings), San Diego, USA",
+    link: "https://aclanthology.org/2026.findings-acl.2002/" },
+  { y: 2026, type: "Workshop",
+    title: "Characterization of User Engagement in Electronic News Media: A Case Study for India",
+    authors: "Abhishek Kumar, Abhik Jana, Debi Prosad Dogra",
+    venue: "PoliticalNLP, co-located with LREC 2026, Palma de Mallorca, Spain",
+    link: "http://lrec-conf.org/proceedings/lrec2026/workshops/politicalnlp/2026.politicalnlp-1.0.pdf" },
+  { y: 2026, type: "Conference",
+    title: "Early Fusion with Contrastive Learning: A Lightweight Alternative for Multi-modal Classification",
+    authors: "Felix Wernlein, Abhik Jana, Sandipan Sikdar",
+    venue: "LREC 2026, Palma de Mallorca, Spain",
+    link: "https://doi.org/10.63317/3ioe7epfs78m" },
+  { y: 2026, type: "Conference",
+    title: "Story Generation via Interaction between Human and Large Language Model",
+    authors: "Sai Krishna Jupally, Abhik Jana, Manoranjan Satpathy",
+    venue: "IEEE GCON 2026, IIT Guwahati, India",
+    link: "https://ieeexplore.ieee.org/document/11648232" },
+  { y: 2026, type: "Conference", soon: true,
+    title: "Prompt Expansion with Multimodal Models for Enhanced Scene Rendering",
+    authors: "Akshay Sharma, Manoranjan Satpathy, Abhik Jana",
+    venue: "ICCAI 2026, Okinawa, Japan" },
+
+  // ----- 2025 -----
+  { y: 2025, type: "Workshop",
+    title: "Are LLMs Good for Semantic Role Labeling via Question Answering? A Preliminary Analysis",
+    authors: "Ritwik Raghav, Abhik Jana",
+    venue: "IJCNLP-AACL 2025 Student Research Workshop, IIT Mumbai, India",
+    link: "https://aclanthology.org/2025.ijcnlp-srw.21.pdf" },
+  { y: 2025, type: "Conference",
+    title: "This is not a Disimprovement: Improving Negation Reasoning in Large Language Models via Prompt Engineering",
+    authors: "Joshua Jose Dias Barreto, Abhik Jana",
+    venue: "EMNLP 2025 (Findings), Suzhou, China",
+    link: "https://aclanthology.org/2025.findings-emnlp.761.pdf" },
+  { y: 2025, type: "Conference",
+    title: "Text Takes Over: A Study of Modality Bias in Multimodal Intent Detection",
+    authors: "Ankan Mullick, Saransh Sharma, Abhik Jana, Pawan Goyal",
+    venue: "EMNLP 2025, Suzhou, China",
+    link: "https://aclanthology.org/2025.emnlp-main.1226.pdf" },
+  { y: 2025, type: "Conference",
+    title: "TripCraft: A Benchmark for Spatio-Temporally Fine Grained Travel Planning",
+    authors: "Soumyabrata Chaudhuri, Pranav Purkar, Ritwik Raghav, Shubhojit Mallick, Manish Gupta, Abhik Jana, Shreya Ghosh",
+    venue: "ACL 2025, Vienna, Austria",
+    link: "https://aclanthology.org/2025.acl-long.834.pdf" },
+
+  // ----- 2024 -----
+  { y: 2024, type: "Workshop",
+    title: "News Headline Generation in Telugu",
+    authors: "Likhita Sunkari, Abhik Jana",
+    venue: "WiNLP, co-located with EMNLP 2024, Florida, USA",
+    link: "https://openreview.net/pdf?id=Q7VVeck89d" },
+  { y: 2024, type: "Conference",
+    title: "CrowdCounter: A benchmark type-specific multi-target counterspeech dataset",
+    authors: "Punyajoy Saha, Abhilash Datta, Abhik Jana, Animesh Mukherjee",
+    venue: "CoNLL 2024, Florida, USA",
+    link: "https://aclanthology.org/2024.conll-1.37.pdf" },
+  { y: 2024, type: "Conference",
+    title: "Pruning Literals for Highly Efficient Explainability at Word Level",
+    authors: "Rohan Kumar Yadav, Bimal Bhattarai, Abhik Jana, Lei Jiao, Seid Muhie Yimam",
+    venue: "ISTM 2024, Pittsburgh, USA",
+    link: "https://ieeexplore.ieee.org/document/10931519" },
+  { y: 2024, type: "Conference",
+    title: "On Zero-Shot Counterspeech Generation by LLMs",
+    authors: "Punyajoy Saha, Aalok Agrawal, Abhik Jana, Chris Biemann, Animesh Mukherjee",
+    venue: "LREC-COLING 2024, Turin, Italy",
+    link: "https://aclanthology.org/2024.lrec-main.1090.pdf" },
+
+  // ----- 2023 -----
+  { y: 2023, type: "Preprint",
+    title: "Natural language processing in the legal domain",
+    authors: "Daniel Martin Katz, Dirk Hartung, Lauritz Gerlach, Abhik Jana, Michael J. Bommarito II",
+    venue: "arXiv 2023 (under review)",
+    link: "https://arxiv.org/abs/2302.12039" },
+  { y: 2023, type: "Conference",
+    title: "Unsupervised Ultra-Fine Entity Typing with Distributionally Induced Word Senses",
+    authors: "Özge Sevgili, Steffen Remus, Abhik Jana, Alexander Panchenko, Chris Biemann",
+    venue: "AIST 2023, Yerevan, Armenia",
+    link: "https://link.springer.com/chapter/10.1007/978-3-031-54534-4_9" },
+
+  // ----- 2022 -----
+  { y: 2022, type: "Journal",
+    title: "Hypernymy Detection for Low-Resource Languages: A Study for Hindi, Bengali, and Amharic",
+    authors: "Abhik Jana, Gopalakrishnan Venkatesh, Seid Muhie Yimam, Chris Biemann",
+    venue: "ACM TALLIP, 2022",
+    link: "https://dl.acm.org/doi/10.1145/3490389" },
+  { y: 2022, type: "Journal",
+    title: "Network Embeddings from Distributional Thesauri for Improving Static Word Representations",
+    authors: "Abhik Jana, Siddhant Haldar, Pawan Goyal",
+    venue: "Expert Systems with Applications (ESA), 2022",
+    link: "https://www.sciencedirect.com/science/article/pii/S0957417421012276" },
+  { y: 2022, type: "Workshop",
+    title: "Enriching Hindi WordNet Using Knowledge Graph Completion Approach",
+    authors: "Sushil Awale, Abhik Jana",
+    venue: "EURALI, co-located with LREC 2022, Marseille, France",
+    link: "https://aclanthology.org/2022.eurali-1.13.pdf" },
+  { y: 2022, type: "Workshop",
+    title: "Towards Bengali WordNet Enrichment using Knowledge Graph Completion Techniques",
+    authors: "Sree Bhattacharyya, Abhik Jana",
+    venue: "EURALI, co-located with LREC 2022, Marseille, France",
+    link: "https://aclanthology.org/2022.eurali-1.12.pdf" },
+  { y: 2022, type: "Conference",
+    title: "LexGLUE: A Benchmark Dataset for Legal Language Understanding in English",
+    authors: "Ilias Chalkidis, Abhik Jana, Dirk Hartung, Michael James Bommarito, Ion Androutsopoulos, Daniel Martin Katz, Nikolaos Aletras",
+    venue: "ACL 2022, Dublin, Ireland",
+    link: "https://aclanthology.org/2022.acl-long.297.pdf" },
+  { y: 2022, type: "Conference",
+    title: "Using Distributional Thesaurus To Enhance Transformer based Contextualized Representations for Low Resource Languages",
+    authors: "Gopalakrishnan Venkatesh, Abhik Jana, Steffen Remus, Ozge Sevgili, Gopalakrishnan Srinivasaraghavan, Chris Biemann",
+    venue: "ACM/SIGAPP SAC 2022, virtual",
+    link: "https://dl.acm.org/doi/10.1145/3477314.3507077" },
+
+  // ----- 2021 -----
+  { y: 2021, type: "Conference",
+    title: "Sentiment Analysis For Bengali Using Transformer Based Models",
+    authors: "Anirban Bhowmick, Abhik Jana",
+    venue: "ICON 2021, Assam, India",
+    link: "https://aclanthology.org/2021.icon-main.58.pdf" },
+  { y: 2021, type: "Workshop",
+    title: "An Investigation towards Differentially Private Sequence Tagging in a Federated Framework",
+    authors: "Abhik Jana, Chris Biemann",
+    venue: "PrivateNLP, co-located with NAACL 2021, virtual",
+    link: "https://aclanthology.org/2021.privatenlp-1.4.pdf" },
+  { y: 2021, type: "Conference",
+    title: "Error Analysis of using BART for Multi-Document Summarization: A Study for English and German Language",
+    authors: "Timo Johner, Abhik Jana, Chris Biemann",
+    venue: "NoDaLiDa 2021, Reykjavik, Iceland",
+    link: "https://aclanthology.org/2021.nodalida-main.43.pdf" },
+
+  // ----- 2020 -----
+  { y: 2020, type: "Journal",
+    title: "Network measures: A new paradigm towards reliable novel word sense detection",
+    authors: "Abhik Jana, Animesh Mukherjee, Pawan Goyal",
+    venue: "Information Processing & Management (IPM), 2020",
+    link: "https://www.sciencedirect.com/science/article/pii/S0306457319303474" },
+  { y: 2020, type: "Conference",
+    title: "Using Distributional Thesaurus Embedding for Co-hyponymy Detection",
+    authors: "Abhik Jana, Nikhil Reddy Varimalla, Pawan Goyal",
+    venue: "LREC 2020, virtual",
+    link: "https://aclanthology.org/2020.lrec-1.707.pdf" },
+
+  // ----- 2019 -----
+  { y: 2019, type: "Conference",
+    title: "Incorporating Domain Knowledge into Medical NLI using Knowledge Graphs",
+    authors: "Soumya Sharma, Bishal Santra, Abhik Jana, Santosh Tokala, Niloy Ganguly, Pawan Goyal",
+    venue: "EMNLP-IJCNLP 2019, Hong Kong, China",
+    link: "https://aclanthology.org/D19-1631.pdf" },
+  { y: 2019, type: "Conference",
+    title: "On the Compositionality Prediction of Noun Phrases using Poincaré Embeddings",
+    authors: "Abhik Jana, Dmitry Puzyrev, Alexander Panchenko, Pawan Goyal, Chris Biemann, Animesh Mukherjee",
+    venue: "ACL 2019, Florence, Italy",
+    link: "https://aclanthology.org/P19-1316.pdf" },
+  { y: 2019, type: "Conference",
+    title: "Detecting Reliable Novel Word Senses: A Network-Centric Approach",
+    authors: "Abhik Jana, Animesh Mukherjee, Pawan Goyal",
+    venue: "ACM/SIGAPP SAC 2019, Limassol, Cyprus",
+    link: "https://dl.acm.org/doi/10.1145/3297280.3297376" },
+
+  // ----- 2018 -----
+  { y: 2018, type: "Conference",
+    title: "WikiRef: Wikilinks as a route to recommending appropriate references for scientific Wikipedia pages",
+    authors: "Abhik Jana, Pranjal Kanojiya, Pawan Goyal, Animesh Mukherjee",
+    venue: "COLING 2018, New Mexico, USA",
+    link: "https://aclanthology.org/C18-1032.pdf" },
+  { y: 2018, type: "Conference",
+    title: "Can Network Embedding of Distributional Thesaurus be Combined with Word Vectors for Better Representation?",
+    authors: "Abhik Jana, Pawan Goyal",
+    venue: "NAACL-HLT 2018, New Orleans, USA",
+    link: "https://aclanthology.org/N18-1043.pdf" },
+  { y: 2018, type: "Conference",
+    title: "Network Features Based Co-hyponymy Detection",
+    authors: "Abhik Jana, Pawan Goyal",
+    venue: "LREC 2018, Miyazaki, Japan",
+    link: "https://aclanthology.org/L18-1006.pdf" },
+
+  // ----- earlier -----
+  { y: 2017, type: "Conference",
+    title: "WikiM: Metapaths based Wikification of Scientific Abstracts",
+    authors: "Abhik Jana, Sruthi Mooriyath, Animesh Mukherjee, Pawan Goyal",
+    venue: "JCDL 2017, Toronto, Canada",
+    link: "https://ieeexplore.ieee.org/document/7991556" },
+  { y: 2014, type: "Journal",
+    title: "Design and Development of a Bangla Semantic Lexicon and Semantic Similarity Measure",
+    authors: "Manjira Sinha, Tirthankar Dasgupta, Abhik Jana, Anupam Basu",
+    venue: "International Journal of Computer Applications (IJCA), 2014",
+    link: "https://www.ijcaonline.org/archives/volume95/number5/16588-6297/" },
+  { y: 2012, type: "Workshop",
+    title: "A New Semantic Lexicon and Similarity Measure in Bangla",
+    authors: "Manjira Sinha, Abhik Jana, Tirthankar Dasgupta, Anupam Basu",
+    venue: "CogALex-III, co-located with COLING 2012, IIT Mumbai, India",
+    link: "https://aclanthology.org/W12-5114.pdf" },
+];
+
+// ---------- MASTER'S THESES (completed) ----------
+const MTECH = [
+  ["Revanth Rao", "UTP-Bench: Uncertainty-aware Travel Planning Benchmark", "M.Tech", "2024-26", "Software AI Trainee, [x]CUBE Labs"],
+  ["Ankit Gupta", "Asymmetry and Neighborhood-Aware Scoring for Lexical Semantic Change Detection", "M.Tech", "2024-26", "Assistant Professor, Panveer Singh Institute of Technology, Kanpur"],
+  ["Nali Bhavna", "Towards Robust Speech-to-Speech Translation for Low-Resource Dravidian Languages", "M.Tech", "2024-26", "Trainee Analyst (Data Science), Tiger Analytics"],
+  ["Akshay Sharma (co-supervision)", "Text To Image Generation Using MLLM", "M.Tech", "2023-25", "AI Researcher, Alchem International"],
+  ["Urmil Kalpesh Vora", "Fake News Detection in Hindi, Gujarati, Marathi, and Telugu", "M.Tech", "2023-25", "Project Associate (AI/ML), AI CERTs"],
+  ["Amit Singh", "Common Sense Reasoning Using Large Language Model", "M.Tech", "2022-24", "Government job"],
+  ["Likhita Sunkari", "Automated News Headline Generation in Telugu", "Dual", "2019-24", "Data Scientist, Turing"],
+  ["Agamya Yadav", "Automated Interpretation of Hindi Poetry", "Dual", "2019-24", "SDE, Media.net"],
+  ["Jupally Sai Krishna (co-supervision)", "Interactive Story Generation", "Dual", "2019-24", "SDE, Brane Enterprises"],
+];
+
+// ---------- BACHELOR'S THESES (completed) ----------
+const BTECH = [
+  ["Harshith Reddy", "Automatic Speech Recognition for Indian Languages and Code-Switched Speech", "B.Tech", "2022-26", "Quantitative Researcher, MarsQuant"],
+  ["Bandaru Lavadeep", "IndiAnn: A Web-based Annotation Platform for Indic Languages", "B.Tech", "2022-26", "Data Science Engineer, ZS Associates"],
+  ["Abhishek Kumar (co-supervision)", "Analysis of Biasness in User Engagement on Indian News Media", "B.Tech", "2021-25", "Software Engineer, Ultimate Kronos Group (UKG)"],
+  ["Priyam Saha", "Analyzing the Computational Energy of Spiking Neural Network Models", "B.Tech", "2021-25", "SDE-1, Oracle"],
+  ["Gunda Anish", "Low-Resource Neural Machine Translation Using Pivot-Based Approach for Indic-to-Indic Languages", "B.Tech", "2021-25", "M.Sc. Computer Science, Imperial College London, UK"],
+  ["Joshua Jose Dias Barreto", "Large Language Models for Negation Reasoning", "B.Tech", "2021-25", "M.S. Computer Science, University of California, Davis"],
+  ["Akhil Kumar M", "Text Summarization on Indian Legal Corpus", "B.Tech", "2020-24", "SDE, Ittiam Systems"],
+  ["Chekuri Muni Siva Charan", "Telugu Text Summarisation", "B.Tech", "2020-24", "Data Analyst, Tiger Analytics"],
+  ["Kaushik Dey", "Enhancing Context-Based Question Answering Capabilities of Bengali Models", "B.Tech", "2020-24", "Digital Analyst, Accenture, Japan"],
+  ["Ravinuthala Lasya Priya", "Text Summarisation in Telugu", "B.Tech", "2020-24", "Data Scientist, Publicis Sapient"],
+  ["Sakshi Shashikant Yeole", "Legal Document Classification", "B.Tech", "2020-24", "Data Scientist, Publicis Sapient"],
+  ["Sathvik Mallela", "Sentiment Analysis for Telugu Language", "B.Tech", "2020-24", "Advanced App Engineering Analyst, Accenture"],
+  ["Venkata Anirudh Vepuri", "Legal Named Entity Recognition", "B.Tech", "2020-24", "Associate Solution Leader, Brane Enterprises"],
+  ["Thadicherla Hrishith", "Question Answering for Telugu Language", "Dual", "2020-25", "Continuing dual degree"],
+  ["Pooner Sumith", "Sentiment Analysis for Hindi Language", "B.Tech", "2020-24", "SDE, Software TF"],
+];
+
+// ---------- GALLERY ----------
+// 1. Create a folder named gallery/ next to this file and put your photos in it.
+// 2. Add one line per photo below, for example:
+//    { src: "gallery/acl2025-vienna.jpg", caption: "ACL 2025, Vienna" },
+const GALLERY = [
+];
+
+/* =========================================================
+   SITE LOGIC (no need to edit below this line)
+   ========================================================= */
+
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+// ---------- publications ----------
+const filters = document.getElementById("filters");
+const pubList = document.getElementById("pubList");
+let activeType = "All";
+const TYPE_ORDER = ["Journal", "Conference", "Workshop", "Preprint"];
+
+function authorsHTML(str) {
+  return str.split(", ").map(a => a === MY_NAME ? `<b>${esc(a)}</b>` : esc(a)).join(", ");
+}
+function pubHTML(p) {
+  const title = p.link ? `<a href="${esc(p.link)}" rel="noopener">${esc(p.title)}</a>` : esc(p.title);
+  return `
+    <article class="pub">
+      <span class="title">${title}</span>
+      <span class="authors">${authorsHTML(p.authors)}</span>
+      <span class="venue"><span class="tag">${esc(p.type)}</span>${p.soon ? `<span class="tag soon">To appear</span>` : ""}${esc(p.venue)}</span>
+    </article>`;
+}
+function renderPubs() {
+  const list = PUBS.filter(p => activeType === "All" || p.type === activeType);
+  if (!list.length) { pubList.innerHTML = `<p class="empty">No publications of this type yet.</p>`; return; }
+  const years = [...new Set(list.map(p => p.y))].sort((a, b) => b - a);
+  pubList.innerHTML = years.map(y =>
+    `<h3 class="year">${y}</h3>` + list.filter(p => p.y === y).map(pubHTML).join("")
+  ).join("");
+}
+function renderFilters() {
+  const present = TYPE_ORDER.filter(t => PUBS.some(p => p.type === t));
+  const count = t => t === "All" ? PUBS.length : PUBS.filter(p => p.type === t).length;
+  filters.innerHTML = ["All", ...present].map(t =>
+    `<button type="button" data-type="${t}" aria-pressed="${t === activeType}">${t} (${count(t)})</button>`).join("");
+}
+filters.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  activeType = b.dataset.type; renderFilters(); renderPubs();
+});
+renderFilters(); renderPubs();
+
+// ---------- thesis tables ----------
+function thesisTable(el, rows) {
+  el.innerHTML = `<table>
+    <thead><tr><th scope="col">Student</th><th scope="col">Thesis title</th><th scope="col">Degree</th><th scope="col">Years</th><th scope="col">Placement</th></tr></thead>
+    <tbody>${rows.map(r => `<tr><td class="name">${esc(r[0])}</td><td>${esc(r[1])}</td><td class="nw">${esc(r[2])}</td><td class="nw">${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join("")}</tbody>
+  </table>`;
+}
+thesisTable(document.getElementById("mtechTable"), MTECH);
+thesisTable(document.getElementById("btechTable"), BTECH);
+
+// ---------- gallery + lightbox ----------
+const grid = document.getElementById("galleryGrid");
+const lb = document.getElementById("lightbox");
+const lbImg = document.getElementById("lbImg");
+const lbCap = document.getElementById("lbCap");
+grid.innerHTML = GALLERY.map((g, i) =>
+  `<button type="button" data-i="${i}" aria-label="Open photo: ${esc(g.caption || "photo")}">
+     <img src="${esc(g.src)}" alt="${esc(g.caption || "")}" loading="lazy">
+     ${g.caption ? `<span class="cap">${esc(g.caption)}</span>` : ""}
+   </button>`).join("");
+grid.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (!b) return;
+  const g = GALLERY[+b.dataset.i];
+  lbImg.src = g.src; lbImg.alt = g.caption || ""; lbCap.textContent = g.caption || "";
+  if (lb.showModal) lb.showModal(); else lb.setAttribute("open", "");
+});
+document.getElementById("lbClose").addEventListener("click", () => lb.close());
+lb.addEventListener("click", e => { if (e.target === lb) lb.close(); });
+
+// ---------- active section in nav ----------
+const navLinks = [...document.querySelectorAll("nav a")];
+const sections = navLinks.map(a => document.querySelector(a.getAttribute("href")));
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting) navLinks.forEach(a => a.classList.toggle("active", a.getAttribute("href") === "#" + en.target.id));
+  });
+}, { rootMargin: "-20% 0px -70% 0px" });
+sections.forEach(s => s && io.observe(s));
+
+// ---------- theme toggle ----------
+const root = document.documentElement;
+try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+document.getElementById("themeBtn").addEventListener("click", () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+});
+
+// ---------- footer date ----------
+document.getElementById("updated").textContent =
+  new Date(document.lastModified).toLocaleDateString("en-IN", { day: "numeric", month: "long", year: "numeric" });
+</script>
 </body>
 </html>
