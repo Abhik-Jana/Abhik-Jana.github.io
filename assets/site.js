@@ -198,7 +198,7 @@ if ($("nBachelors")) $("nBachelors").textContent = BTECH.length;
 if ($("galleryGrid")) {
   const grid = $("galleryGrid");
   if (!GALLERY.length) {
-    grid.outerHTML = `<p class="empty">Photos will appear here soon. Meanwhile, see the album linked above.</p>`;
+    grid.outerHTML = `<p class="empty">...</p>`;
   } else {
     const lb = $("lightbox"), lbImg = $("lbImg"), lbCap = $("lbCap");
     grid.innerHTML = GALLERY.map((g, i) =>
