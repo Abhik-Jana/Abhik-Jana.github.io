@@ -43,7 +43,7 @@ const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchM
             <span class="mono" aria-hidden="true">AJ</span>
             <span class="brand-text">
               <span class="brand-name">Abhik Jana</span>
-              <span class="brand-sub"><b>Assistant Professor</b>, Computer Science and Engineering<br><span class="inst">Indian Institute of Technology Bhubaneswar</span></span>
+              <span class="brand-sub"><b>Assistant Professor</b>, Department of Computer Science and Engineering<br><span class="inst">Indian Institute of Technology Bhubaneswar</span></span>
             </span>
           </a>
           <button class="theme-btn" id="themeBtn" type="button"></button>
