@@ -180,7 +180,7 @@ if ($("recentPubs")) {
 /* ---------- thesis tables ---------- */
 function thesisTable(el, rows) {
   el.innerHTML = `<table>
-    <thead><tr><th scope="col">Student</th><th scope="col">Thesis title</th><th scope="col">Degree</th><th scope="col">Years</th><th scope="col">Placement</th></tr></thead>
+    <thead><tr><th scope="col">Student</th><th scope="col">Thesis title</th><th scope="col">Degree</th><th scope="col">Batch</th><th scope="col">Placement</th></tr></thead>
     <tbody>${rows.map(r => `<tr><td class="name">${nameHTML(r[0])}</td><td>${esc(r[1])}</td><td class="nw">${esc(r[2])}</td><td class="nw">${esc(r[3])}</td><td>${esc(r[4])}</td></tr>`).join("")}</tbody>
   </table>`;
 }
