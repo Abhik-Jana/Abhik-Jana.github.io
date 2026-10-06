@@ -81,7 +81,7 @@ const isDark = () => root.dataset.theme ? root.dataset.theme === "dark" : matchM
         </div>
         <div class="foot-right">
           <p class="visits" id="visits" hidden title="Counted without cookies by GoatCounter">Visitors <b id="visitCount"></b></p>
-          <p>Official profile: <a href="https://secs.iitbbs.ac.in/index.php/abhik/" rel="noopener">SECS, IIT Bhubaneswar</a></p>
+          <p>Official profile: <a href="https://secs.iitbbs.ac.in/index.php/abhik/" rel="noopener">CSE, SECS, IIT Bhubaneswar</a></p>
         </div>
       </div></footer>`;
     startCounter();
