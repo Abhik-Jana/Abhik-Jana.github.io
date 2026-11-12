@@ -10,7 +10,12 @@ const MY_NAME = "Abhik Jana";   // shown in bold in author lists
 // type: "Journal" | "Conference" | "Workshop" | "Preprint"
 // soon: true for "to appear". link is optional.
 const PUBS = [
-  // ----- 2026 -----
+  // ----- 2027 -----
+   { y: 2027, type: "Conference", soon: true,
+    title: "Hierarchical Multi-Agent Reinforcement Learning for Coordinated Task Allocation and Obstacle-Free Path Planning of Unmanned Underwater Vehicles",
+    authors: "Veer Vikram, Abhik Jana, Joy Chandra Mukherjee",
+    venue: "International Symposium on Artificial Life and Robotics, Beppu, Japan" }, 
+   // ----- 2026 -----
   { y: 2026, type: "Workshop", soon: true,
     title: "Towards Robust ASR for Indian Languages: Evaluating Traditional Speech Recognition Architectures and Large Audio-Language Models",
     authors: "Manmohan Mahapatra, Abhik Jana",
